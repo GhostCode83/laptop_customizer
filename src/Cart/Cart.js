@@ -1,6 +1,5 @@
 import React from 'react';
-import CartOptions from '../CartOptions/CartOptions';
-
+import CartItems from '../CartItems/CartItems';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -8,15 +7,20 @@ class Cart extends React.Component {
   }
 
   render() {
+     
+
     return (
       <section className="main__summary">
         <h2>Your cart</h2>
-        {this.props.summary}
+        <CartItems state={this.props.state}/>
+
+        
         <div className="summary__total" />
         <div className="summary__total__label">Total</div>
-        <div className="summary__total__value" />
+        <div className="summary__total__value">
         {this.props.currency}
-        <CartOptions />
+          </div>
+
       </section>
 
     )
