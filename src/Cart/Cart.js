@@ -1,23 +1,20 @@
 import React from 'react';
 import CartItems from '../CartItems/CartItems';
 import CartTotal from '../CartTotal/CartTotal';
+import './Cart.css'
 
-class Cart extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
+function Cart( props ){
+ 
     return (
       <section className="main__summary">
         <h2>Your cart</h2>
-        <CartItems state={this.props.state}/>
+        <CartItems state={props.state}/>
         <CartTotal 
-          currency={this.props.currency}
-          state={this.props.state}/>
+          currency={props.currency}
+          state={props.state}/>
      </section>
     )
-  }
+  
 }
 
 export default Cart

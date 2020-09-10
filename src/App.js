@@ -8,10 +8,9 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
 
-
 class App extends React.Component {
-  constructor(props){
-    super(props)
+  constructor( props ){
+    super( props )
     this.state = {
       selected: {
         Processor: {
@@ -34,31 +33,30 @@ class App extends React.Component {
     };
   }
       
-  updateFeature = (feature, newValue) => {
-    console.log(feature, newValue)
-    const selected = Object.assign({}, this.state.selected); //clones the this.state.selected object
-    selected[feature] = newValue; // takes the item value from onChange event handler and passes that value to the cloned object of this.state.selected
-    console.log(selected )
+  updateFeature = ( feature, newValue ) => {
+    const selected = Object.assign({}, this.state.selected); 
+    selected[feature] = newValue; 
     this.setState({
       selected
     });
   };
 
   render() {
+
     return (
       <div className="App">
         <Header />
-        <Main state={this.state}
-          currency={USCurrencyFormat}
+        <Main 
+          selected={this.state.selected}
           updateFeature={this.updateFeature}/>
         <section className="main__summary">
           <Cart
             state={this.state} 
             currency={USCurrencyFormat}/>
         </section>
-        
       </div>
     );
+
   }
 }
 
